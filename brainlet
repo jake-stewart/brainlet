@@ -487,7 +487,7 @@ def print_brainlet(s, align, width):
                     right_padding = remaining_space - left_padding
                     lines[i] = left_padding * " " + line + right_padding * " "
     else:
-        lines = [s]
+        lines = textwrap.wrap(s, 2 ** 16)
 
     if len(lines):
         for line in lines:
