@@ -47,7 +47,7 @@ This example was rendered in a terminal with proper box drawing. Most modern ter
 
 #### Numbers
 ```
-╶┐ ╶─╮╶─╮╷ ╷┌─╴╭─╴╶─┐╭─╮╭─╮╭─╮
+╶┐ ╶─╮╶─╮╷ ╷┌─╴╭─╮╶─┐╭─╮╭─╮╭─╮
  │ ╭─╯╶─┤└─┤╰─╮├─╮  ┼├─┤╰─┤│││
 ╶┴╴└─╴╶─╯  ╵╰─╯╰─╯  ╵╰─╯╰─╯╰─╯
 ```
