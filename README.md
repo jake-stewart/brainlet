@@ -16,8 +16,7 @@
 
 This example was rendered in a terminal with proper box drawing. Most modern terminals support this.
 
-![Screenshot 2024-12-10 at 11 17 23 AM](https://github.com/user-attachments/assets/f5823a73-a9da-468f-9f57-3bed8895abba)
-
+![Screenshot 2024-12-10 at 4 04 26 PM](https://github.com/user-attachments/assets/dbe755f6-cdac-40a5-a8b6-2645196e81c9)
 
 #### Letters
 ```
