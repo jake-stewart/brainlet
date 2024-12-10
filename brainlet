@@ -451,10 +451,13 @@ def print_brainlet(s, width):
         lines = textwrap.wrap(s, width)
     else:
         lines = [s]
-    for line in lines:
-        output_buffers = brainlet(line)
-        for output_buffer in output_buffers:
-            print("".join(output_buffer))
+    if len(lines):
+        for line in lines:
+            output_buffers = brainlet(line)
+            for output_buffer in output_buffers:
+                print("".join(output_buffer))
+    else:
+        print("\n\n")
 
 def main():
     parser = argparse.ArgumentParser()
