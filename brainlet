@@ -476,20 +476,18 @@ def brainlet(s):
 def print_brainlet(s, align, width):
     if width:
         lines = textwrap.wrap(s, width)
+        for i, line in enumerate(lines):
+            remaining_space = width - len(line)
+            if remaining_space > 0:
+                if align == "right":
+                    lines[i] = remaining_space * " " + line
+                    pass
+                elif align == "center":
+                    left_padding = remaining_space // 2
+                    right_padding = remaining_space - left_padding
+                    lines[i] = left_padding * " " + line + right_padding * " "
     else:
         lines = [s]
-
-    for i, line in enumerate(lines):
-        remaining_space = width - len(line)
-        if remaining_space > 0:
-            if align == "right":
-                lines[i] = remaining_space * " " + line
-                pass
-            elif align == "center":
-                left_padding = remaining_space // 2
-                right_padding = remaining_space - left_padding
-                lines[i] = left_padding * " " + line + right_padding * " "
-                pass
 
     if len(lines):
         for line in lines:
