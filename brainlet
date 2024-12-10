@@ -439,10 +439,10 @@ def brainlet(s):
                 output_buffers[i].append(line)
         except KeyError:
             output_buffers[0].append("   ")
-            output_buffers[1].append(" ")
-            output_buffers[1].append(letter)
             if not is_double_width(letter):
                 output_buffers[1].append(" ")
+            output_buffers[1].append(letter)
+            output_buffers[1].append(" ")
             output_buffers[2].append("   ")
     return output_buffers
 
