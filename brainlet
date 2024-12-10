@@ -473,11 +473,24 @@ def brainlet(s):
             output_buffers[2].append("   ")
     return output_buffers
 
-def print_brainlet(s, width):
+def print_brainlet(s, align, width):
     if width:
         lines = textwrap.wrap(s, width)
     else:
         lines = [s]
+
+    for i, line in enumerate(lines):
+        remaining_space = width - len(line)
+        if remaining_space > 0:
+            if align == "right":
+                lines[i] = remaining_space * " " + line
+                pass
+            elif align == "center":
+                left_padding = remaining_space // 2
+                right_padding = remaining_space - left_padding
+                lines[i] = left_padding * " " + line + right_padding * " "
+                pass
+
     if len(lines):
         for line in lines:
             output_buffers = brainlet(line)
@@ -490,12 +503,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("text", nargs="*", help="the text to render")
     parser.add_argument("-w", "--width", type=int, help="number of chars until wrap, or zero for no wrapping")
+    parser.add_argument("-a", "--align", choices=["left", "center", "right"], help="align the text of multiple lines")
     args = parser.parse_args(sys.argv[1:])
 
     width = None
     if args.width is not None:
         if args.width > 0:
             width = args.width
+        elif args.align == "right" or args.align == "center":
+            print("brainlet: cannot align without a width", file=sys.stderr)
+            exit(2)
     else:
         if sys.stdout.isatty():
             bounds = shutil.get_terminal_size((-1, -1))
@@ -507,13 +524,13 @@ def main():
             width = 80 // 3
 
     if len(args.text):
-        print_brainlet(" ".join(args.text), width)
+        print_brainlet(" ".join(args.text), args.align, width)
     else:
         try:
             for line in sys.stdin:
                 if line.endswith("\n"):
                     line = line[:-1]
-                print_brainlet(line, width)
+                print_brainlet(line, args.align, width)
         except EOFError:
             exit(0)
         except KeyboardInterrupt:
