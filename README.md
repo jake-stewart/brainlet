@@ -1,10 +1,4 @@
-```
-┌╮ ┌─╮╭─╮╶┬╴┌─╮╷  ╭─╴╶┬╴
-├┴╮├┬╯├─┤ │ │ ││  ├─  │ 
-└─╯╵╰╴╵ ╵╶┴╴╵ ╵╰─╴╰─╴ ╵ 
-```
-
-`brainlet` is similar to `figlet` and `toilet`, but it renders with border chars making it more compact and readable.
+<img width="308" alt="Screenshot 2024-12-11 at 9 52 21 PM" src="https://github.com/user-attachments/assets/9cf9d1dd-f2c9-4484-bc35-5240fbdbf8fa" />
 
 #### Usage
 
